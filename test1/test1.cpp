@@ -28,36 +28,34 @@ void Cfeet::display()
 Cfeet Cfeet::add(Cfeet & ojbk)
 {
 	Cfeet temp;
-	if (feet > ojbk.feet)
+	int a;
+	if (feet >= ojbk.feet)
 	{
-		if (inch > ojbk.inch)
+		if (inch >= ojbk.inch)
 			temp.setvalue(feet - ojbk.feet, inch - ojbk.inch);
 		else
-			temp.setvalue(feet - ojbk. feet - 1, inch + 12 - ojbk.inch);
+			temp.setvalue(feet - ojbk.feet - 1, inch + 12 - ojbk.inch);
 	}
-	if (feet == ojbk.feet)
-	{
-		if(inch > ojbk.inch)
-			temp.setvalue(feet - ojbk.feet, inch - ojbk.inch);
-	}
+	else
+		a=feet * 12 + inch - ojbk.feet*12 - ojbk.inch;
+		temp.setvalue(a/12,-(a%12));
 	return temp;
 }
 Cfeet Cfeet::operator-(Cfeet & ojbk)
 {
 	Cfeet temp;
-	if (feet > ojbk.feet)
+	int a;
+	if (feet >= ojbk.feet)
 	{
-		if (inch > ojbk.inch)
+		if (inch >= ojbk.inch)
 			temp.setvalue(feet - ojbk.feet, inch - ojbk.inch);
 		else
-			temp.setvalue(feet - ojbk.feet - 1, inch + 12 - ojbk.inch);
+			temp.setvalue(feet - ojbk.feet - 1, inch+12 - ojbk.inch);
 	}
-	if (feet == ojbk.feet)
-	{
-		if (inch > ojbk.inch)
-			temp.setvalue(feet - ojbk.feet, inch - ojbk.inch);
-	}
-	return temp;
+	else
+		a = feet * 12 + inch - ojbk.feet * 12 - ojbk.inch;
+	    temp.setvalue(a / 12, -(a % 12));
+    return temp;
 }
 
 
@@ -65,8 +63,8 @@ Cfeet Cfeet::operator-(Cfeet & ojbk)
 int main()
 {
 	Cfeet A, B, C;
-	A.setvalue(42, 13);
-	B.setvalue(30,2 );
+	A.setvalue(1,1);
+	B.setvalue(2,2);
 	C = A - B;
 	C.display();
 	return 0;
